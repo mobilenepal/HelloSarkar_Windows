@@ -1,0 +1,101 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="HelloSarkar.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800" 
+    
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+ 
+        <!--Panorama control-->
+        <controls:Panorama Title="hello sarkar" Background="#FFF50909" Foreground="White">
+            <!--Panorama item one-->
+            <controls:PanoramaItem Header="">
+                <Grid>
+                    <Image Source="/HelloSarkar;component/Images/final_logo1.png" Margin="6,-210,-6,120" />
+                </Grid>
+                <!--Double line list with text wrapping-->
+                
+            </controls:PanoramaItem>
+ 
+            <!--Panorama item two-->
+            <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
+            <controls:PanoramaItem Header="information">
+                <!--<ScrollViewer x:Name="contentScrollViewer" VerticalAlignment="Stretch" Height="700">-->
+                <ListBox Height="700" Margin="0,-35,0,0" HorizontalAlignment="Stretch">
+                    <TextBlock Name="textBlockName" Text="Name :" FontSize="22" Margin="0,5,0,0"/>
+                    <TextBox Name="textBoxName" Width="365" Height="70" Margin="60,-45,0,0" />
+                    <TextBlock Name="textBlockCategory" Text="*Complaint Category :" FontSize="22" Margin="0,10,0,0"/>
+                    <TextBox Name="textBoxCategory" Height="70" Width="220" Margin="205,-60,0,0" />
+                    <TextBlock Name="textBlockDistrict" Text="*District :" Margin="0,15,0,0" FontSize="22"/>
+                    <TextBox Name="textBoxDistrict" Text="" Margin="80,-65,0,0" Height="70" Width="345"/>
+                    <TextBlock Name="textBlockAddress" Text="Address :" FontSize="22"/>
+                    <TextBox Name="textBoxAddress" FontSize="22" Width="345" Height="70" Margin="80,-50,0,0"   />
+                    <TextBlock Name="textBlockMobile" FontSize="22" Text="Mobile no. :"/>
+                    <TextBox Name="textBoxMobile" InputScope="Number" FontSize="22" Width="320" Height="70" Margin="105,-50,0,0"/>
+                    <TextBlock Name="textBlockDateofIncident" Text="Date of Incident :" FontSize="22"/>
+                    <TextBox Name="textBoxDate" FontSize="22" Width="270" Height="70" Margin="156,-50,0,0" />
+                    <TextBlock Name="textBlockGPS" Text="GPS :" FontSize="22"/>
+                    <TextBox Name="textBoxGPS" IsReadOnly="True" FontSize="22" Width="385" Height="70" Margin="40,-50,0,0"/>
+                    <TextBlock Name="textBlockComplaint" FontSize="22" Text="Complaint Box :" Margin="0,-15,0,0" />
+                    <TextBox Name="textBoxComplaint" FontSize="22" Width="430" Height="100" Margin="-10,-15,0,0"/>
+                    <Button Name="btnSubmit" Content="Submit" Click="btnSubmit_Click" Margin="0,0,0,0"/>
+                    <Button Name="btnCancel" Content="Cancel" Margin="140,-73,0,0" Click="btnCancel_Click" />
+                    <TextBlock Name="responsedata" Text="" Margin="300,-75,0,0"/>
+                </ListBox>
+
+                <!--</ScrollViewer>-->
+            </controls:PanoramaItem>
+
+            <!--Panorama item three-->
+            <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
+            <controls:PanoramaItem Header="complaints">
+                <!--Double line list with image placeholder and text wrapping-->                
+                <StackPanel>
+                    <!--<TextBlock Name="textBlockCname" Text="Name"/>
+                    <TextBlock Name="textBlockCcategory" Text="Category" Margin="100,-27,0,0"/>
+                    <TextBlock Name="textBlockCdistrict" Text="District"/>
+                    <TextBlock Name="textBlockCdetailaddress" Text="Address"/>
+                    <TextBlock Name="textBlockCmobilenumber" Text="Mobile No."/>
+                    <TextBlock Name="textBlockCdate" Text="Date"/>
+                    <TextBlock Name="textBlockCcomplaints" Text="Complaints"/>-->
+                    <Button Content="view" Click="Button_Click_1" Width="132"></Button>
+                <ListBox x:Name="listBox" >                   
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="10" >
+                                <TextBlock Text="Name:"/>
+                                <TextBlock Margin="60,-27,0,0" Text="{Binding name}"/>
+                                <TextBlock Text="Category:"/>
+                                <TextBlock Margin="85,-27,0,0" Text="{Binding category}"/>
+                                <TextBlock Text="District:"/>
+                                <TextBlock Margin="68,-27,0,0" Text="{Binding district}"/>
+                                <TextBlock Text="Address:"/>
+                                <TextBlock Margin="75,-27,0,0" Text="{Binding detailaddress}"/>
+                                <TextBlock Text="Mobile Number:"/>
+                                <TextBlock Margin="145,-27,0,0" Text="{Binding mobilenumber}"/>
+                                <TextBlock Text="Date:"/>
+                                <TextBlock Margin="50,-27,0,0" Text="{Binding dateofincident}"/>
+                                <TextBlock Text="Complaints:"/>
+                                <TextBlock Margin="110,-27,0,0" Text="{Binding complaints}"/>                                   
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                </StackPanel>
+                
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    </Grid>
+</phone:PhoneApplicationPage>
